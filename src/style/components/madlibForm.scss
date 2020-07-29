@@ -41,7 +41,7 @@ input {
     font-size: 18px;
     text-align: center;
     color: white;
-} 
+}
 
 .button-wrapper {
     display: flex;
@@ -50,10 +50,18 @@ input {
 }
 
 .generate-button {
-    height: 50px;
-    width: 300px;
-    border-radius: 4px;
     background-color: $bottegaGreen;
-    color: white;
-    font-size: 1.25em;
+    @include buttonStyles;
+}
+
+.clear-button, a {
+    @include buttonStyles;
+    background-color: $clearBlue;
+    padding-top: 9px;
+    text-align: center;
+}
+
+input:focus,
+button:focus {
+    outline: none;
 }
