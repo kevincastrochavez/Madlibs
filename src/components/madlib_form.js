@@ -3,8 +3,21 @@ import { Row, Col } from 'reactstrap';
 
 class MadlibForm extends Component {
 
-    handleChange = function () {
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            color:'',
+            pluralNoun: '',
+            adjectuveOne: '',
+            celebrityOne: ''
+        }
+    }
+
+    handleChange = function (props) {
+        return function(event) {
+            this.setState({[props.inputTitle]: event.target.value});
+        }.bind(this);
     }
     
     render() {
@@ -18,7 +31,15 @@ class MadlibForm extends Component {
                         </Col>
 
                         <Col md="10">
-                            <input placeholder="Color" type="text" onChange={this.handleChange} />
+                            <input placeholder="Color" type="text" onChange={this.handleChange({inputTitle: 'color'})} />
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md="12">
+                            <div className="inputDescription">
+                                Color
+                            </div>
                         </Col>
                     </Row>
                 </Col>
@@ -30,7 +51,15 @@ class MadlibForm extends Component {
                         </Col>
 
                         <Col md="10">
-                            <input placeholder="Color" type="text" onChange={this.handleChange} />
+                            <input placeholder="Noun (Plural)" type="text" onChange={this.handleChange({inputTitle: 'pluralNoun'})} />
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md="12">
+                            <div className="inputDescription">
+                                Noun (Plural)
+                            </div>
                         </Col>
                     </Row>
                 </Col>
@@ -42,7 +71,15 @@ class MadlibForm extends Component {
                         </Col>
 
                         <Col md="10">
-                            <input placeholder="Color" type="text" onChange={this.handleChange} />
+                            <input placeholder="Adjective" type="text" onChange={this.handleChange({inputTitle: 'adjectiveOne'})} />
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md="12">
+                            <div className="inputDescription">
+                                Adjective
+                            </div>
                         </Col>
                     </Row>
                 </Col>
@@ -54,7 +91,15 @@ class MadlibForm extends Component {
                         </Col>
 
                         <Col md="10">
-                            <input placeholder="Color" type="text" onChange={this.handleChange} />
+                            <input placeholder="Celebrity" type="text" onChange={this.handleChange({inputTitle: 'celebrityOne'})} />
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col md="12">
+                            <div className="inputDescription">
+                                Celebrity
+                            </div>
                         </Col>
                     </Row>
                 </Col>
