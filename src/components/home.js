@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MadlibForm from './madlib_form';
 
-export default class App extends Component {
+export default class Home extends Component {
   render() {
     return (
       <div>

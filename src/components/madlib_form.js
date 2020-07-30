@@ -55,18 +55,18 @@ class MadlibForm extends Component {
         }
     }
 
-    handleChange = function (props) {
+    onChange = function (props) {
         return function(event) {
             this.setState({[props.inputTitle]: event.target.value});
         }.bind(this);
     }
 
-    handleSubmit = function(event) {
+    onSubmit = function(event) {
         this.setState({completedForm: true});
         event.preventDefault();
     }.bind(this);
 
-    handleClick = function() {
+    onClick = function() {
         this.setState({
             completedForm: false,
             color:'',
@@ -90,7 +90,7 @@ class MadlibForm extends Component {
 
     renderButton = function() {
         return this.state.completedForm ? 
-            <a className="clear-button" onClick={this.handleClick}>Clear Mad Lib</a>
+            <a className="clear-button" onClick={this.onClick}>Clear Mad Lib</a>
             :
             <input type="submit" className="generate-button" value="Generate Mad Lib"/>
     }
@@ -119,11 +119,11 @@ class MadlibForm extends Component {
         return (
             <div className="card-wrapper">
                 <Card>
-                    <form onSubmit={this.handleSubmit} id="madlib-form">
+                    <form onSubmit={this.onSubmit} id="madlib-form">
                         <Row style={{textAlign: 'center', color: 'white'}}>
                             {
                                 _.map(this.inputData, (data, indexKey) => {
-                                    return <MadLibInput key={indexKey} index={indexKey + 1} state={data.state} placeholder={data.placeholder} onChange={this.handleChange({inputTitle: data.prop})} />;
+                                    return <MadLibInput key={indexKey} index={indexKey + 1} state={data.state} placeholder={data.placeholder} onChange={this.onChange({inputTitle: data.prop})} />;
                                 })
                             }
                         </Row>
